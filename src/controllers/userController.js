@@ -76,7 +76,7 @@ export const userController = {
   },
   async setResult(req, res) {
     try {
-      const result = await userQuery.setResult();
+      await userQuery.setResult();
 
       return res.status(200).json('messsage: is true')
     } catch (error) {
@@ -85,7 +85,7 @@ export const userController = {
   },
   async removeResult(req, res) {
     try {
-      const result = await userQuery.removeResult();
+      await userQuery.removeResult();
 
       return res.status(200).json('Message: is false')
     } catch (error) {

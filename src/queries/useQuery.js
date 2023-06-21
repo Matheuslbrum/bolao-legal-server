@@ -116,7 +116,7 @@ export const userQuery = {
     try {
       const connection = await pool.getConnection();
       
-      const setResultQuery = 'UPDATE admin_information SET result = 1';
+      const setResultQuery = 'UPDATE admin_information SET result = 1 WHERE id = 1';
 
       await connection.query(setResultQuery);
       
@@ -131,7 +131,7 @@ export const userQuery = {
     try {
       const connection = await pool.getConnection();
       
-      const removeResultQuery = 'UPDATE admin_information SET result = 0';
+      const removeResultQuery = 'UPDATE admin_information SET result = 0 WHERE id = 1';
 
       await connection.query(removeResultQuery);
       
