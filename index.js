@@ -1,13 +1,14 @@
+import 'dotenv/config'
 import express from 'express';
+import bodyParser from "body-parser";
+import cors from 'cors';
+import routes from './src/routes/routes.js'
+
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Choo Choo! Welcome to your Express app 🚅');
-})
-
-app.get("/json", (req, res) => {
-    res.json({"Choo Choo": "Welcome to your Express app 🚅"});
-})
+app.use(cors());
+app.use(bodyParser.json());
+app.use(routes)
 
 const port = process.env.PORT || 3000;
 
