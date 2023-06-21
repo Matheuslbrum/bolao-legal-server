@@ -12,4 +12,9 @@ router.get('/adm', userController.getAdmInformation)
 router.put('/adm', userController.updateAdmInformation)
 router.delete('/adm', userController.deleteUsersAndScores)
 
+router.put('/result/true', userController.setResult)
+router.put('/result/false', userController.removeResult)
+
+
+
 export default router;

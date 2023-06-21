@@ -74,4 +74,22 @@ export const userController = {
       res.status(500).json(error)
     }
   },
+  async setResult(req, res) {
+    try {
+      const result = await userQuery.setResult();
+
+      return res.status(200).json('messsage: is true')
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  },
+  async removeResult(req, res) {
+    try {
+      const result = await userQuery.removeResult();
+
+      return res.status(200).json('Message: is false')
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  },
 }

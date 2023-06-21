@@ -112,4 +112,34 @@ export const userQuery = {
       throw error;      
     }
   },
+  async setResult(){
+    try {
+      const connection = await pool.getConnection();
+      
+      const setResultQuery = 'UPDATE admin_information SET result = 1';
+
+      await connection.query(setResultQuery);
+      
+      connection.release();
+      return;
+    } catch (error) {
+      console.error('Erro ao executar a consulta: ', error);
+      throw error;      
+    }
+  },
+  async removeResult(){
+    try {
+      const connection = await pool.getConnection();
+      
+      const removeResultQuery = 'UPDATE admin_information SET result = 0';
+
+      await connection.query(removeResultQuery);
+      
+      connection.release();
+      return;
+    } catch (error) {
+      console.error('Erro ao executar a consulta: ', error);
+      throw error;      
+    }
+  },
 }
