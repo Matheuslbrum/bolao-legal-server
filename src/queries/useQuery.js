@@ -147,7 +147,7 @@ export const userQuery = {
       
       connection.release();
 
-      return rows;
+      return;
     } catch (error) {
       console.error('Erro ao executar a consulta: ', error);
       throw error;      
