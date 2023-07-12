@@ -28,6 +28,36 @@ export const userController = {
       res.status(500).json(error)
     }
   },
+  async createTeam(req, res) {
+    try {
+      const teamData = req.body;
+      const { teamName } = teamData;
+      const teams = await userQuery.createTeams(teamName);
+
+      return res.status(200).json(teams)
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  },
+  async getTeams(req, res) {
+    try {
+      const teams = await userQuery.getTeams();
+
+      return res.status(200).json(teams)
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  },
+  async updateScore(req, res) {
+    try {
+      const scoreData = req.body;
+      const updateScore = await userQuery.updateScore(scoreData);
+
+      return res.status(200).json(updateScore)
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  },
   async createUser(req, res) {
     try {
       const userData = req.body;
@@ -55,7 +85,7 @@ export const userController = {
   async createScore(req, res) {
     try {
       const scoreData = req.body;
-      const newData = scoreData.map((data) => [data.team_one, data.team_two, data.result])
+      const newData = scoreData.map((data) => [data.team_one, data.team_two])
       const newScore = userQuery.createScore(newData);
       return res.status(200).json(newScore)
     } catch (error) {
